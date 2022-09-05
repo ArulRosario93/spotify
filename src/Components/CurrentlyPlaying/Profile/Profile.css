@@ -1,0 +1,14 @@
+.CurrentlyPlayingProfile{
+    width: 100%;
+    box-sizing: border-box;
+    padding-bottom:5%;
+}
+.CurrentlyPlayingProfile img{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    height: 92vh;
+    width: 100%;
+    object-fit: none;
+    box-sizing: border-box;
+}

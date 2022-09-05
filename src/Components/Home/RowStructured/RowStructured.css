@@ -1,0 +1,35 @@
+.RowStructured{
+    width:100%;
+    text-align: center;
+    display: block;
+}
+.eachRowInside{
+    text-align: left;
+    padding: 0% 3%;
+    background: 'red';
+}
+.eachRowInside img{
+    width: 40px;
+    height: 42px;
+    object-fit: cover;
+}
+.giveBorder{
+    border-radius: 2px;
+    text-align: center;
+    position: 'relative';
+    width: 48%;
+    margin: auto 1%;
+    padding: 1% 1%;
+    background-color: rgba(110, 110, 110, 0.527);
+    box-sizing: border-box;
+    display: flex;
+    float: left;
+    align-items: center;
+    background: 'grey';
+}
+.giveBorder p{
+    padding: 0%;
+    float: right;
+    margin: auto 0%;
+    margin: 0% 35% 0% 2%;
+}

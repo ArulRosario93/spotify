@@ -1,0 +1,75 @@
+.searchedTracks{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2% 3.5%;
+    margin: 0%;
+    /* background: rgba(8, 8, 8, 0.986); */
+    color: aliceblue;
+}
+.searchedTracks h4{
+    font-size: small;
+    padding: 5% 2% 3% 0%;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.heyyy{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.heyyy p{
+    width: auto;
+    margin: 0%;
+    padding: 5% 2% 3% 0%;
+    padding-right: 3%;
+}
+.searchedTracks p{
+    font-size: x-small;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.SeachedTrackdiv{
+    box-sizing: border-box;
+    position: fixed;
+    height: 91%;
+    /* background: rgba(8, 8, 8, 0.986); */
+    left: 0%;
+    overflow-y: scroll;
+    width: 100%;
+    padding-bottom: 25%;
+}
+.containBruh{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1% 0%;
+}
+.containBruh img{
+    margin-right: 3%;
+}
+.textField{
+    outline: none;
+    border: none;
+    z-index: 10;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgb(104, 104, 104);
+    width: 100%;
+    left: 0%;
+    padding: 10px 5px;
+    color: rgb(104, 104, 104);
+    background-color: transparent;
+}
+.searchWhtyouLove{
+    background: rgba(8, 8, 8, 0.986);
+    box-sizing: border-box;
+    left: 0%;
+    z-index: 5;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 91%;
+    justify-content: center;
+    align-items: center;
+}

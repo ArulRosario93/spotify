@@ -1,0 +1,40 @@
+.Header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    padding: 4% 1%;
+    box-sizing: border-box;
+    position: fixed;
+    width: 100%;
+    top: 0%;
+    left: 0%;
+    z-index: 10;
+    color: rgba(240, 248, 255, 0.767);
+}
+.showcaseLyric{
+    background: rgba(8, 8, 8, 0.897);
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    top: 0%;
+    left: 0%;
+    position: absolute;
+    overflow-y: scroll;
+}
+.headHere{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lyricsHere{
+    text-align: center;
+    display: block;
+    font-size: xx-large;
+}
+.showcaseLyric .lyricsHere p{
+    font-size: medium;
+    padding-bottom: 60%;
+    font-weight: 800;
+}

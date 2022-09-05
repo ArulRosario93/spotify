@@ -1,0 +1,41 @@
+.artistProfile{
+    width: 100%;
+    color: rgba(240, 248, 255, 0.767);
+}
+.imageHere{
+    width: 100%;
+    position: relative;
+}
+.artistProfileImg{
+    width: 100%;
+    max-height: 40vh;
+    object-fit: cover;
+    object-position: center;
+}
+.renderDoom{
+    padding: 0% 5%;
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 8%;
+}
+.artistInfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.renderDoom h5{
+    margin: 0%;
+    font-size: medium;
+}
+.renderLeft h3{
+    margin: 0%;
+    padding-top: 2%;
+    font-size: xx-large;
+    padding-bottom: 2%;
+}
+.renderRight{
+    padding: 2% 4%;
+    border:  1px solid rgba(240, 248, 255, 0.767);
+}

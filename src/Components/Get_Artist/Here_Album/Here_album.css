@@ -1,0 +1,24 @@
+.artistAlbum{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0% 4%;
+    padding-bottom: 50px;
+}
+.AlbumHere{
+    box-sizing: border-box;
+    text-align: center;
+    margin: 2% 0%;
+    padding: 5%;
+    width: 50%;
+    float: left;
+    font-size: smaller;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+}
+.AlbumHere img{
+    max-width: 80%;
+}
+.AlbumHere p{
+    font-weight: 700;
+    font-size: x-small;
+}

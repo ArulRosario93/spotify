@@ -1,0 +1,51 @@
+.playingInfo{
+    position: absolute;
+    box-sizing: border-box;
+    bottom: 0%;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0% 6% 5% 6%;
+    backdrop-filter: blur(1px);
+}
+.topRow{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.like{
+    font-size: small;
+}
+.timeCount{
+    padding: 2% 0%;
+}
+.timeCount p{
+    margin: 0%;
+    font-size: xx-small;
+    padding: 6% 0%;
+}
+.timeNownEnd{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.tracknArtist h5{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: small;
+}
+.tracknArtist p{
+    font-family: 'Josefin Sans', sans-serif;
+    margin-top: -18%;
+    font-size: x-small;
+}
+.trackManuplicate{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0% 15%;
+    justify-content: space-around;
+    padding: 4% 0%;
+}

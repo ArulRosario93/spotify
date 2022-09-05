@@ -1,0 +1,26 @@
+.loginIt{
+    height: 100vh;
+    background: black;
+    width: 100vw;
+    text-align: center;
+    box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top: auto;
+    margin-bottom: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: relative;
+}
+.loginIt .spotify{
+    padding-top: 19vh;
+    width: 100%;
+    margin-bottom: 35vh;
+}
+.loginIt a{
+    font-family: 'Lato', sans-serif;
+    padding: 4% 20%;
+    border-radius: 30px;
+    text-decoration: none;
+    color: aliceblue;
+    border: 2px solid rgb(3, 143, 84);
+}

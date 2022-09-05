@@ -1,0 +1,26 @@
+.Header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    padding: 4% 3%;
+    box-sizing: border-box;
+    position: fixed;
+    width: 100%;
+    top: 0%;
+    left: 0%;
+    z-index: 5;
+    color: rgba(240, 248, 255, 0.767);
+}
+.Header h5{
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 0%;
+    font-weight: 500;
+    font-size: 1rem;
+}
+.Header p{
+    margin-top: 9px;
+    font-size: small;
+    font-family: 'Josefin Sans', sans-serif;
+}

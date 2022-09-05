@@ -1,0 +1,9 @@
+body{
+    margin: 0%;
+    padding: 0%;
+    background: rgba(8, 8, 8, 0.986);
+    /* padding-bottom: 25%; */
+}
+.SpotifyPlayer{
+    height: 80px;
+}

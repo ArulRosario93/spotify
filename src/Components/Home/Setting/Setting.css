@@ -1,0 +1,58 @@
+.settings{
+    box-sizing: border-box;
+    color: aliceblue;
+}
+/* .topLayer{
+    margin: 10px 15px;
+} */
+.userProfile{
+    text-align: center;
+    padding: 20% 5% 5% 5%;
+}
+.userProfile img{
+    border-radius: 80px;
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    object-position: center;
+}
+.userProfile p{
+    margin: 0%;
+}
+.containitall{
+    width: 100%;
+    box-sizing: border-box;
+}
+.LibrariesContent{
+    box-sizing: border-box;
+    text-align: center;
+    padding: 5%;
+    width: 50%;
+    height: 150px;
+    float: left;
+    font-size: smaller;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+}
+.LibrariesContent img{
+    max-width: 80%;
+}
+.LibrariesContent p{
+    margin-top: -.5%;
+}
+.zzooooommmIN{
+    padding: 1% 3%;
+}
+.bottom div span{
+    padding-top: 20%;
+    padding-bottom: 10%;
+    padding-left: 4%;
+    margin-top: 4%;
+}
+.bottom{
+    margin-top: 3%;
+    width: 200px;
+}
+.bottom h3{
+    padding: 3% 4%;
+}

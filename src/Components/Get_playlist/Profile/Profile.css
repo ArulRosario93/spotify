@@ -1,0 +1,22 @@
+.Profile{
+    z-index: 0;
+    top: 0%;
+    left: 0%;
+    padding: 0%;
+    width: 100%;
+    color: aliceblue;
+}
+.P_img{
+    width: 100%;
+}
+.P_img img{
+    object-fit: none;
+    object-position: center;
+    width: 100%;
+    max-height: 60vh;
+}
+ .P_info{
+    padding-left: 5%;
+    position: relative;
+    margin-top: -30%;
+}

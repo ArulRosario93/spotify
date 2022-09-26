@@ -60,7 +60,7 @@ const Header = ({ songName, artist, sayItBUDDY }) => {
             </div>
             <div style={{flex: '1', paddingTop: '2%', boxSizing: 'border-box'}}>
                 {
-                    sayItBUDDY ? <p onClick={showHandler}>lyric</p> : <p></p>
+                    sayItBUDDY == null ? <p onClick={showHandler}>lyric</p> : <p></p>
                 }
                 {
                     In ? <div className="showcaseLyric">

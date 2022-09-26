@@ -20,22 +20,19 @@ const Spotify = () => {
     }
 
     useEffect(() => {
-        setPlay(true)
-        console.log("came true bud we git it");
+        
     }, [searched_id])
 
     if(!searched_id) return null;
     return(
-        <div style={{ position: 'fixed', zIndex: '9', bottom: '0%', width:'100%', left:'0%',background: 'none', color: 'white', height: '80px'}}>
+        <div style={{ display:'none', position: 'fixed', zIndex: '9', bottom: '0%', width:'100%', left:'0%',background: 'none', color: 'white', height: '80px'}}>
             <SpotifyPlayer 
                 uri={ searched_id ? searched_id?.uri : null }
                 size={size}
                 theme={theme}
                 style={{height: '80px'}}
             />
-
         </div>
     )
 }
-
 export default Spotify;

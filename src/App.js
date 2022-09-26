@@ -134,12 +134,18 @@ function App() {
           set_developer: data,
         })
       })
+      spotify.searchArtists("tamil top", { limit: 10 }).then(data => {
+        dispatch({
+          type: 'SET_ARTISTS',
+          artists: data,
+        })
+      })
     }
   }, [token])
 
   return (
     // token ? <Get_Artist/> : <Login />
-    token ? renderCurrentlyPlaying ? <CurrentlyPlaying /> :  renderPlaylist ? <Get_playlist /> : get_artist ? <Get_Artist/> : about_dev ? <AbouttheDeveloper /> : setting ? <Setting /> : <Home /> : <Login />
+    token ? renderPlaylist ? <Get_playlist /> : get_artist ? <Get_Artist/> : about_dev ? <AbouttheDeveloper /> : setting ? <Setting /> : <Home /> : <Login />
   )
 }
 

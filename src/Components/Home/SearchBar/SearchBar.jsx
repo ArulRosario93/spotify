@@ -140,6 +140,9 @@ const SearchBar = () => {
                             triggerOffset={0}
                             delayInMilliseconds={100}
                         >
+                        {
+                            item?.type === "track" ? 
+                                    <a target="_blank" href={`https://embed.spotify.com/?uri=${item?.uri}&view=list&theme=light`}>
                             <div className="searchedTracks" key={i} onClick={Handler}>
                                 <div className="containBruh">
                                     <img style={{height: '13%', width: '13%', objectFit: 'cover'}} src={item?.album?.images?.[0]?.url ? item?.album?.images?.[0]?.url : item?.images?.[0]?.url}/>
@@ -153,7 +156,21 @@ const SearchBar = () => {
                                     </div>
                                 </div>
                                 <div><MoreHorizIcon /></div>
+                            </div> </a>: <div className="searchedTracks" key={i} onClick={Handler}>
+                                <div className="containBruh">
+                                    <img style={{height: '13%', width: '13%', objectFit: 'cover'}} src={item?.album?.images?.[0]?.url ? item?.album?.images?.[0]?.url : item?.images?.[0]?.url}/>
+                                    <div style={{width: '100%'}}>
+                                        <h4 style={{margin: '0%', width: '100%', padding: '2% 3% 2% 0%'}}>{item?.name}</h4>
+                                        <div className="heyyy" style={{margin: '0%', width: "100%"}}>
+                                            <p style={{padding: '0% 2% 0% 0%'}}>{item?.type === "track" ? "Song" : item?.type}</p>
+                                            <p style={{ width: '100%', padding: '0% 2% 0% 0%'}}>{item?.artists?.[0]?.name}</p>
+                                        </div>
+                                        <p style={{display: 'none'}}>{item?.id}</p>
+                                    </div>
+                                </div>
+                                <div><MoreHorizIcon /></div>
                             </div>
+                        }
                         </FadeIn>
                     ))
                 }</div> : saySearch ? <div className="searchWhtyouLove">

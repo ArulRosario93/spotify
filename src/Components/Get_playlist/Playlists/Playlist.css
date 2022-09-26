@@ -54,9 +54,13 @@
 .noName{
     display: flex;
     flex-direction: row;
-    min-width: 70%;
+    min-width: 269px;
     align-items: center;
 }
 .noName .innerDiv{
-    margin-left: 10%;
+    margin-left: 25px;
+}
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
 }

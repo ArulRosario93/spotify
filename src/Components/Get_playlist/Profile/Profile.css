@@ -10,10 +10,10 @@
     width: 100%;
 }
 .P_img img{
-    object-fit: none;
+    object-fit: initial;
     object-position: center;
     width: 100%;
-    max-height: 60vh;
+    max-height: 66vh;
 }
  .P_info{
     padding-left: 5%;

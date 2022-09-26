@@ -21,34 +21,29 @@ const Here_Album = () => {
             })
         })
     }
-
-    console.log(artist_page, "what here");
-
-    spotify.isFollowingArtists([artist_page?.items?.[0]?.artists?.[0]?.id, artist_page?.items?.[0]?.artists?.[0]?.id]).then(data => {
-        console.log(data, "we got buuuuud")
-    })
-
+    
     return(
-        <div className="artistAlbum">
-            <h4>Albums</h4>
-            <div className="whereNow">
-            {
-                artist_page?.items.map((item, i) => {
-                        {
-                            if(item?.album_group === "album"){  
-                                return(
-                                    <div className="AlbumHere" key={i} onClick={Handler}>
-                                        <img loading="eager" src={item?.images?.[0]?.url}/>
-                                        <p>{item?.name}</p>
-                                        <p style={{display: "none"}}>{item?.id}</p>
-                                    </div>
-                                )
+        artist_page?.items?.[0]?.album_group === "album" ?
+            <div className="artistAlbum">
+                <h4>Albums</h4>
+                <div className="whereNow">
+                {
+                    artist_page?.items.map((item, i) => {
+                            {
+                                if(item?.album_group === "album"){  
+                                    return(
+                                        <div className="AlbumHere" key={i} onClick={Handler}>
+                                            <img loading="eager" src={item?.images?.[0]?.url}/>
+                                            <p>{item?.name}</p>
+                                            <p style={{display: "none"}}>{item?.id}</p>
+                                        </div>
+                                    )
+                                }
                             }
-                        }
-                })
-            }
-            </div>
-        </div>
+                    })
+                }
+                </div>
+            </div> : null
     )
 }
 

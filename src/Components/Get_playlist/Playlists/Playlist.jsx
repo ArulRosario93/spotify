@@ -19,73 +19,16 @@ const Playlist = () => {
 
     console.log(playlist?.albums?.items, "herehrerhere");
     console.log(playlist, "herehrerhere");
-    const Handler = (e) => {
 
-        if(e?.target?.childNodes?.[1]?.childNodes?.[1]?.innerHTML){
-            spotify.getTrack(e?.target?.childNodes?.[1]?.childNodes?.[1]?.innerHTML).then(data => {
-                dispatch({
-                    type: 'SEARCHED_ID',
-                    searched_id: data,
-                })
-                // dispatch({
-                //     type: 'RENDERPLAYLIST',
-                //     renderPlaylist: false,
-                // })
-                dispatch({
-                    type: 'RENDERCURRENTLYPLAYING',
-                    renderCurrentlyPlaying: true,
-                })
+    const youShallDoThis = (e, name) => {
+        console.log("whta now BUDDY", name)
+        spotify.getTrack(name).then(data => {
+            console.log(data, "whta now BUDDY")
+            dispatch({
+                type: 'SEARCHED_ID',
+                searched_id: data,
             })
-        }
-        else if(e?.target?.nextSibling?.lastChild?.innerHTML){
-            spotify.getTrack(e?.target?.nextSibling?.lastChild?.innerHTML).then(data => {
-                dispatch({
-                    type: 'SEARCHED_ID',
-                    searched_id: data,
-                })
-                // dispatch({
-                //     type: 'RENDERPLAYLIST',
-                //     renderPlaylist: false,
-                // })
-                dispatch({
-                    type: 'RENDERCURRENTLYPLAYING',
-                    renderCurrentlyPlaying: true,
-                })
-            })
-        }
-        else if(e?.target?.nextSibling?.innerHTML){
-            spotify.getTrack(e?.target?.nextSibling?.innerHTML).then(data => {
-                dispatch({
-                    type: 'SEARCHED_ID',
-                    searched_id: data,
-                })
-                // dispatch({
-                //     type: 'RENDERPLAYLIST',
-                //     renderPlaylist: false,
-                // })
-                dispatch({
-                    type: 'RENDERCURRENTLYPLAYING',
-                    renderCurrentlyPlaying: true,
-                })
-            })
-        }else if(e?.target?.parentElement?.parentElement?.childNodes?.[0].childNodes?.[1]?.lastChild?.innerHTML){
-            spotify.getTrack(e?.target?.parentElement?.parentElement?.childNodes?.[0].childNodes?.[1]?.lastChild?.innerHTML).then(data => {
-                dispatch({
-                    type: 'SEARCHED_ID',
-                    searched_id: data,
-                })
-                // dispatch({
-                //     type: 'RENDERPLAYLIST',
-                //     renderPlaylist: false,
-                // })
-                dispatch({
-                    type: 'RENDERCURRENTLYPLAYING',
-                    renderCurrentlyPlaying: true,
-                })
-            })
-        }else{
-            console.log("NOthing yet");
-        }
+        })
     }
 
     const HandlerShuffle = () => {
@@ -93,32 +36,32 @@ const Playlist = () => {
             type: 'SEARCHED_ID',
             searched_id: playlist,
         })
-        // dispatch({
-        //     type: 'RENDERCURRENTLYPLAYING',
-        //     renderCurrentlyPlaying: true,
-        // })
     }
     const HandlerPlay = () => {
         dispatch({
             type: 'SEARCHED_ID',
             searched_id: playlist,
         })
-        // dispatch({
-        //     type: 'RENDERCURRENTLYPLAYING',
-        //     renderCurrentlyPlaying: true,
-        // })    
     }
 
     const white = "white";
     const green = "greenyellow";
 
+    useEffect(() => {
+        console.log(searched_id, "what is this");
+        color = null;
+    }, [searched_id])
+
+    let color;
+
     return(
         <div className="Songs" style={{backgroundImage: `url(${playlist?.images?.[0]?.url ? playlist?.images?.[0]?.url : playlist?.albums?.items?.[0]?.images?.[0]?.url})`, zIndex: '8'}}>
         <div style={{backdropFilter: 'blur(80px)', minHeight: '100vh', paddingBottom: "10%,", boxSizing: 'border-box'}}>
+            {console.log(playlist, "bai playlist rah")}
             <div className="playingMethod">
-                <div className="play" onClick={HandlerPlay}>
+                <div className="play">
                     <div><PlayArrowRoundedIcon/></div>
-                    <div style={{paddingLeft: '1%'}}><p>Play</p></div>
+                    <div style={{paddingLeft: '1%'}}><a href={`https://embed.spotify.com/?uri=${playlist?.uri ? playlist?.uri : playlist?.albums?.uri}&view=list&theme=light`} target="_blank"><p>Play</p></a></div>
                 </div>
                 <div className="shuffle" onClick={HandlerShuffle}>
                     <div><ShuffleOutlinedIcon/></div>
@@ -129,10 +72,9 @@ const Playlist = () => {
                 {
                     playlist?.tracks?.items.map((item, i) => {
 
-                        console.log(searched_id?.id, "algj AOUG");
-                        console.log(item?.track?.id," ;DKGPAJGNAE");
-                        console.log(item?.id," ;;kgh \agljbwour ub");
-
+                        if(searched_id?.id === item?.track?.id){
+                            color = 'greenyellow'
+                        }
                         return(
                             <FadeIn
                                 from="bottom"
@@ -140,10 +82,28 @@ const Playlist = () => {
                                 triggerOffset={0}
                                 delayInMilliseconds={0}
                             >
-                            <div className="singleTrack" onClick={Handler}>
+                            <div className="singleTrack">
                                 <div className="noName">
-                                    <div style={{color: `${searched_id?.id ? searched_id?.id === item?.track?.id ? green : searched_id?.id === item?.id ? green : null : null}`}}>{i+1}</div>
-                                    <div className="innerDiv"><p style={{color: `${searched_id?.id ? searched_id?.id === item?.track?.id ? green : searched_id?.id === item?.id ? green : null : null}`, fontWeight: '300'}}>{item?.track?.name ? item?.track?.name : item?.name}</p><p style={{display: 'none'}}>{item?.id ? item?.id : item?.track?.id}</p></div>
+                                {
+                                    searched_id?.id ? searched_id?.id === item?.track?.id  ? <div style={{color: 'greenyellow'}}>{i+1}</div> : searched_id?.id === item?.id ? <div style={{color: 'greenyellow'}}>{i+1}</div> : <div>{i+1}</div> : <div>{i+1}</div>
+                                }
+                                    {
+                                        searched_id?.id === item?.track?.id  ? 
+                                            <div className="innerDiv" style={{color: `${searched_id?.id ? searched_id?.id === item?.track?.id ? green : searched_id?.id === item?.id ? green : null : null}`}}>
+                                                <a onClick={(e) => youShallDoThis(e, `${item?.track?.id ? item?.track?.id : item?.id}`)} href={`https://embed.spotify.com/?uri=${item?.track?.uri ? item?.track?.uri : item?.uri}&view=list&theme=light`} target="_blank">
+                                                    <p style={{fontWeight: '300'}}>{item?.track?.name ? item?.track?.name : item?.name}</p>
+                                                </a>
+                                                <p style={{display: 'none'}}>{item?.id ? item?.id : item?.track?.id}</p>
+                                            </div> : searched_id?.id === item?.id ? 
+                                            <div className="innerDiv" style={{color: `${searched_id?.id ? searched_id?.id === item?.track?.id ? green : searched_id?.id === item?.id ? green : null : null}`}}>
+                                                <a onClick={(e) => youShallDoThis(e, `${item?.track?.id ? item?.track?.id : item?.id}`)} href={`https://embed.spotify.com/?uri=${item?.track?.uri ? item?.track?.uri : item?.uri}&view=list&theme=light`} target="_blank">
+                                                    <p style={{fontWeight: '300'}}>{item?.track?.name ? item?.track?.name : item?.name}</p>
+                                                </a>
+                                                <p style={{display: 'none'}}>{item?.id ? item?.id : item?.track?.id}</p>
+                                                </div> : <div className="innerDiv" ><a onClick={(e) => youShallDoThis(e, `${item?.track?.id ? item?.track?.id : item?.id}`)} href={`https://embed.spotify.com/?uri=${item?.track?.uri ? item?.track?.uri : item?.uri}&view=list&theme=light`} target="_blank"><p style={{fontWeight: '300'}}>{item?.track?.name ? item?.track?.name : item?.name}</p></a><p style={{display: 'none'}}>{item?.id ? item?.id : item?.track?.id}</p>
+                                            
+                                            </div>
+                                    }
                                 </div>
                                 <div style={{display: 'flex', padding: '0% 3%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', color: `${searched_id?.id ? searched_id?.id === item?.track?.id ? green : searched_id?.id === item?.id ? green : null : null}`}}>
                                     {

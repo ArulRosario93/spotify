@@ -18,18 +18,17 @@ const CurrentlyPlaying = () => {
 
     useEffect(() => {
         find_lyrics(`${searched_id?.artists[0]?.name} - ${searched_id?.name}`).then((data) => {
+            console.log(data, "from direct find lyrics")
                 dispatch({
                     type: "SET_LYRIC",
                     lyric: data,
                 })
             });
-
             try{
                 setLyricHere(lyric)
             }catch(err){
                 setLyricHere(null)
             }
-
             dispatch({
                 type: 'SINGLE_TRACK',
                 single_track: searched_id,

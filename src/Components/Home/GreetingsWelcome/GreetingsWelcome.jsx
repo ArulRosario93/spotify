@@ -9,7 +9,6 @@ const GreetingsWelcome = () => {
     const spotify = new SpotifyWebApi();
     const [{greeting_item, user, token, greetings, user_playlists}, dispatch] = useDataLayerValue();
 
-
         const Handler = (e, name) => {
             if(name === "playlist"){
                 dispatch({
@@ -75,8 +74,18 @@ const GreetingsWelcome = () => {
                                         <h6 style={{fontSize: 'medium'}}>{greetings?.title}</h6>
                                         <p>{greetings?.label ? greetings?.label : null}</p>
                                     </div>
-                                    <div onClick={event => Handler(event, greetings.type)} className="greetImg"><img loading="eager" src={greeting_item?.images?.[0]?.url ? greeting_item?.images?.[0]?.url : greeting_item?.album?.images[0]?.url} alt="logo"/><p>{greeting_item?.name}</p></div>
-                                </div> 
+                                    {
+                                        greetings?.type === "playlist" ? <div onClick={event => Handler(event, greetings.type)} className="greetImg">
+                                            <img loading="eager" src={greeting_item?.images?.[0]?.url ? greeting_item?.images?.[0]?.url : greeting_item?.album?.images[0]?.url} alt="logo"/>
+                                            <p>{greeting_item?.name}</p>
+                                        </div> : <div onClick={event => Handler(event, greetings.type)} className="greetImg">
+                                            <a href={`https://embed.spotify.com/?uri=${greeting_item?.uri}&view=list&theme=light`} target="_blank">
+                                            <img loading="eager" src={greeting_item?.images?.[0]?.url ? greeting_item?.images?.[0]?.url : greeting_item?.album?.images[0]?.url} alt="logo"/>
+                                            <p>{greeting_item?.name}</p>
+                                        </a>
+                                        </div>
+                                    }
+                                    </div> 
                             </FadeIn> : null
                     }
                 </div>

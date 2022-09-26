@@ -6,7 +6,7 @@ export const initialState = {
     playlist: false,
     spotify: null,
     playing: false,
-    artist: null,
+    artists: null,
     searched_tracks: [],
     searched_track: null,
     single_track: false,
@@ -45,6 +45,12 @@ const reducer = (state, action) => {
             return{
                 ...state,
                 user: action.user,
+            }
+
+        case "SET_ARTISTS":
+            return{
+                ...state,
+                artists: action.artists,
             }
         
         case "SET_GREETINGS":

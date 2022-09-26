@@ -6,24 +6,18 @@ import { useDataLayerValue } from "../../DataLayer";
 
 const TopSongs = () => {
 
-    const [{ top_songs_for_artist }, dispatch] = useDataLayerValue();
+    const [{ top_songs_for_artist, searched_id }, dispatch] = useDataLayerValue();
     const spotify = new SpotifyWebApi();
 
-    const Handler = (e) => {
-        console.log(e?.target?.parentElement?.childNodes?.[3]?.innerHTML);
-        console.log(e?.target?.parentElement?.parentElement?.childNodes?.[0]?.childNodes?.[0]?.childNodes?.[3]?.innerHTML);
-        console.log(e?.target?.parentElement?.parentElement?.childNodes?.[3]?.innerHTML);
-        spotify.getTrack(e?.target?.parentElement?.parentElement?.childNodes?.[3]?.innerHTML).then(data => {
-            console.log(data, "what sbhould be given");
+    const Handler = (e, ID) => {
+        spotify.getTrack(ID).then(data => {
+            console.log(data, "whta now BUDDY")
             dispatch({
                 type: 'SEARCHED_ID',
                 searched_id: data,
             })
-            dispatch({
-                type: 'RENDERCURRENTLYPLAYING',
-                renderCurrentlyPlaying: true,
-            })
         })
+        console.log(ID, "CAME HERE FINALLY");
     }
 
     return(
@@ -33,13 +27,15 @@ const TopSongs = () => {
             {
                 top_songs_for_artist?.tracks?.items?.map((item, i) => {
                     return(
-                        <div className="topSongRow" onClick={Handler} key={i}>
+                        <div className="topSongRow" key={i}>
                             <div className="leftMaja">
                                 <div className="picWithName">
                                     <p>{i+1}</p>
                                     <img src={item?.album?.images?.[0]?.url} className="topSongPic"/>
-                                    <div className="rendertheName">
-                                        <h5>{item?.name}</h5>
+                                    <div className="rendertheName" style={{color: `${searched_id?.id ? searched_id?.id === item?.track?.id ? "green" : searched_id?.id === item?.id ? "green" : null : null}`}}>
+                                        <a  onClick={(e) => Handler(e, item)} href={`https://embed.spotify.com/?uri=${item?.track?.uri ? item?.track?.uri : item?.uri}&view=list&theme=light`} target="_blank">
+                                            <h5>{item?.name}</h5>
+                                        </a>
                                     </div>
                                     <p style={{display: 'none'}}>{item.id}</p>
                                     <p style={{display: 'none'}}>whatisit</p>

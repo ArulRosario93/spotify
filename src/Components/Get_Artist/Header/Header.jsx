@@ -27,18 +27,18 @@ const Header = () => {
                 renderPlaylist: true,
             })
         }
-        // dispatch({
-        //         type: "SET_TOP_SONGS_FOR_ARTIST",
-        //         top_songs_for_artist: null,
-        // }),
-        // dispatch({
-        //     type: 'SET_ARTIST_IMAGE',
-        //     artist_image: null,
-        // }),
-        // dispatch({
-        //     type: 'ARTIST_PAGE',
-        //     artist_page: null,
-        // })
+        dispatch({
+                type: "SET_TOP_SONGS_FOR_ARTIST",
+                top_songs_for_artist: null,
+        })
+        dispatch({
+            type: 'SET_ARTIST_IMAGE',
+            artist_image: null,
+        })
+        dispatch({
+            type: 'ARTIST_PAGE',
+            artist_page: null,
+        })
     };
 
     return(

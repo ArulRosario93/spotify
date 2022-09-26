@@ -10,6 +10,7 @@ import { useDataLayerValue } from "../DataLayer";
 import RowStructured from "./RowStructured/RowStructured";
 import { FadeIn } from "react-slide-fade-in";
 import "./Home.css";
+import Player from "./Player/Player";
 
 const Home = () => {
 
